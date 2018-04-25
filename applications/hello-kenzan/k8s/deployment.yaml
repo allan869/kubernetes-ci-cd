@@ -6,12 +6,13 @@ metadata:
     app: hello-kenzan
 spec:
   ports:
-    - port: 8011
+    - port: 80
       targetPort: 80
   selector:
     app: hello-kenzan
     tier: hello-kenzan
   type: NodePort
+
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -29,7 +30,7 @@ spec:
         tier: hello-kenzan
     spec:
       containers:
-      - image: nginx
+      - image: 127.0.0.1:30400/hello-kenzan:latest
         name: hello-kenzan
         ports:
         - containerPort: 80
