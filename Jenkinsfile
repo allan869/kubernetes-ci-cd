@@ -25,3 +25,4 @@ node {
         sh "sed 's#harbor.3commas.cn/k8s/hello-kenzan:latest#'$BUILDIMG'#' applications/hello-kenzan/k8s/deployment.yaml | kubectl apply -f -"
         sh "kubectl rollout status deployment/hello-kenzan"
 }
+
